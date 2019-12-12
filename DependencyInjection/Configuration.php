@@ -4,6 +4,7 @@ namespace Dekalee\EnomBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\HttpKernel\Kernel;
 
 /**
  * This is the class that validates and merges configuration from your app/config files.
@@ -17,8 +18,13 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('dekalee_enom');
+        if (5 <= Kernel::MAJOR_VERSION) {
+            $treeBuilder = new TreeBuilder('dekalee_enom');
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $treeBuilder = new TreeBuilder();
+            $rootNode = $treeBuilder->root('dekalee_enom');
+        }
 
         $rootNode->children()
             ->scalarNode('uid')->defaultValue('resellid')->end()
