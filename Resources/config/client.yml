@@ -1,0 +1,3 @@
+services:
+    eight_points_guzzle.client.enom:
+        class: GuzzleHttp\Client

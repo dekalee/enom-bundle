@@ -1,0 +1,44 @@
+parameters:
+    dekalee_enom.query.purchase.class: Dekalee\Enom\Query\PurchaseQuery
+    dekalee_enom.query.purchase_services.class: Dekalee\Enom\Query\PurchaseServicesQuery
+    dekalee_enom.query.set_host.class: Dekalee\Enom\Query\SetHostQuery
+    dekalee_enom.query.get_domain_status.class: Dekalee\Enom\Query\GetDomainStatusQuery
+
+services:
+    dekalee_enom.query.purchase:
+        class: '%dekalee_enom.query.purchase.class%'
+        arguments:
+            - '%dekalee_enom.credentials.uid%'
+            - '%dekalee_enom.credentials.password%'
+            - '@eight_points_guzzle.client.enom'
+            - '%dekalee_enom.api.base_url%'
+    dekalee_enom.query.purchase_services:
+        class: '%dekalee_enom.query.purchase_services.class%'
+        arguments:
+            - '%dekalee_enom.credentials.uid%'
+            - '%dekalee_enom.credentials.password%'
+            - '@eight_points_guzzle.client.enom'
+            - '%dekalee_enom.api.base_url%'
+    dekalee_enom.query.set_host:
+        class: '%dekalee_enom.query.set_host.class%'
+        arguments:
+            - '%dekalee_enom.credentials.uid%'
+            - '%dekalee_enom.credentials.password%'
+            - '@eight_points_guzzle.client.enom'
+            - '%dekalee_enom.api.base_url%'
+    dekalee_enom.query.get_domain_status:
+        class: '%dekalee_enom.query.get_domain_status.class%'
+        arguments:
+            - '%dekalee_enom.credentials.uid%'
+            - '%dekalee_enom.credentials.password%'
+            - '@eight_points_guzzle.client.enom'
+            - '%dekalee_enom.api.base_url%'
+
+    Dekalee\Enom\Query\PurchaseQuery:
+        alias: dekalee_enom.query.purchase
+    Dekalee\Enom\Query\PurchaseServicesQuery:
+        alias: dekalee_enom.query.purchase_services
+    Dekalee\Enom\Query\SetHostQuery:
+        alias: dekalee_enom.query.set_host
+    Dekalee\Enom\Query\GetDomainStatusQuery:
+        alias: dekalee_enom.query.get_domain_status

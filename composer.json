@@ -1,0 +1,25 @@
+{
+    "name": "dekalee/enom-bundle",
+    "description": "The bundle for the enom adaptor",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nicolas Thal",
+            "email": "nico.th4l@gmail.com"
+        }
+    ],
+    "require": {
+        "dekalee/enom": "~1",
+        "symfony/http-foundation": "~3.0|~4.0|~5.0",
+        "symfony/http-kernel": "~3.0|~4.0|~5.0",
+        "symfony/config": "~3.0|~4.0|~5.0",
+        "symfony/dependency-injection": "~3.0|~4.0|~5.0"
+    },
+    "suggest": {
+        "eightpoints/guzzle-bundle": "Allows you to have some debug information for guzzle"
+    },
+    "autoload": {
+        "psr-4": { "Dekalee\\EnomBundle\\": "" }
+    }
+}
